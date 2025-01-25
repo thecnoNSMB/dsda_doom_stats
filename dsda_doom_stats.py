@@ -41,6 +41,8 @@ class Exceptions_Table(typing.NamedTuple):
 
 # currently only stats.txt version 1 is supported, described below
 # dsda-doom 0.28.1 and cherry-doom 2.0.0 both produce this version
+# old versions of cherry doom produce a version 2, the spec is identical
+# except for two extra ints at the end, best attempts and total attempts, in that order
 #TODO: nyan doom?
 # relevant source lives in prboom2/src/dsda/wad_stats.c
 
