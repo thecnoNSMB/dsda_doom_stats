@@ -7,7 +7,14 @@ import typing
 
 from termcolor import cprint
 
-ROOT_PATH = pathlib.Path("~/.local/share/dsda-doom/dsda_doom_data/").expanduser()
+#TODO: fail gracefully if paths not present
+
+# provide your dsda_doom_data folder or equivalent here
+ROOT_PATH = pathlib.Path("").expanduser()
+
+# provide a TOML file here with max exceptions
+#TODO: provide default toml as a template?
+EXCEPTIONS_FILE = pathlib.Path("").expanduser()
 
 REQUIRE_ITEMS = False
 
@@ -26,8 +33,6 @@ TOTAL_MAXED_LVLS: int
 TOTAL_DEAD_DEMONS: int
 
 PWAD_INDENT_STRING = "    "
-
-EXCEPTIONS_FILE = pathlib.Path("~/Mount/Data2/Apps/Doom/Dev/dsda_doom_stats/exceptions.toml").expanduser()
 
 class Exceptions_Table(typing.NamedTuple):
     WAD_EXCEPTIONS: list
