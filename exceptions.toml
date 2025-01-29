@@ -1,0 +1,71 @@
+#WADs to ignore completely
+WAD_EXCEPTIONS = [
+    #[iwad, pwad]
+]
+
+#Levels with kill exceptions
+#todo: kill counts assume UV, maybe want to fix?
+#idea for that: include skill as a field
+KILL_EXCEPTIONS = [
+    #[iwad, pwad, lump, required kills]
+    ["chex", "", "E1M3", 74], #one flemoid out of bounds
+    ["chex", "", "E1M5", 70], #a bunch of flemoids stuck behind a teleport trap
+    ["doom", "", "E1M8", 26], #a bunch of demons in the death exit
+    ["doom2", "", "MAP30", 1], #icon of sin
+    ["tnt", "", "MAP15", 94], #inaccessible ambush
+    ["tnt", "", "MAP30", 60], #icon of sin
+]
+
+#Levels with secret exceptions
+SECRET_EXCEPTIONS = [
+    #[iwad, pwad, lump, required secrets]
+    ["chex", "chex2", "E1M3", 3], #secret 4 requires a glide because it's too narrow
+    ["doom", "", "E4M3", 20], #two torches block secret sectors
+    ["doom", "", "E4M7", 2], #two secrets too thin to register
+    ["doom2", "", "MAP15", 10], #The Broken Pain Elemental Secret [too thin to register]
+    ["doom2", "", "MAP27", 7], #you can't stand on a teleporter if it teleports you, dumbass
+]
+
+#Levels with item exceptions
+ITEM_EXCEPTIONS = [
+    #[iwad, pwad, lump, required items]
+    ["chex", "", "E1M3", 11], #two computer area maps
+    ["chex", "chex2", "E1M3", 12], #supercharge breakfast in the secret that requires a glide (see above)
+    ["doom2", "", "MAP27", 92], #two computer area maps
+]
+
+#Levels you don't need to play at all
+PLAY_EXCEPTIONS = [
+    #[iwad, pwad, lump]
+    ["chex", "", "E1M6"], #oops! unedited doom levels!
+    ["chex", "", "E1M7"],
+    ["chex", "", "E1M8"],
+    ["chex", "", "E1M9"],
+    ["chex", "", "E2M1"],
+    ["chex", "", "E2M2"],
+    ["chex", "", "E2M3"],
+    ["chex", "", "E2M4"],
+    ["chex", "", "E2M5"],
+    ["chex", "", "E2M6"],
+    ["chex", "", "E2M7"],
+    ["chex", "", "E2M8"],
+    ["chex", "", "E2M9"],
+    ["chex", "", "E3M1"],
+    ["chex", "", "E3M2"],
+    ["chex", "", "E3M3"],
+    ["chex", "", "E3M4"],
+    ["chex", "", "E3M5"],
+    ["chex", "", "E3M6"],
+    ["chex", "", "E3M7"],
+    ["chex", "", "E3M8"],
+    ["chex", "", "E3M9"],
+    ["chex", "", "E4M1"],
+    ["chex", "", "E4M2"],
+    ["chex", "", "E4M3"],
+    ["chex", "", "E4M4"],
+    ["chex", "", "E4M5"],
+    ["chex", "", "E4M6"],
+    ["chex", "", "E4M7"],
+    ["chex", "", "E4M8"],
+    ["chex", "", "E4M9"],
+]

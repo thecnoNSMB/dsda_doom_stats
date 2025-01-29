@@ -13,7 +13,6 @@ from termcolor import cprint
 ROOT_PATH = pathlib.Path("").expanduser()
 
 # provide a TOML file here with max exceptions
-#TODO: provide default toml as a template?
 EXCEPTIONS_FILE = pathlib.Path("").expanduser()
 
 REQUIRE_ITEMS = False
