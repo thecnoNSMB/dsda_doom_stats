@@ -41,6 +41,7 @@ class Exceptions_Table(typing.NamedTuple):
     PLAY_EXCEPTIONS: list
 
 #TODO: lift ALL printing behavior into its own distinct step
+# this will also make paginating output easier
 
 
 # currently only stats.txt version 1 is supported, described below
@@ -137,6 +138,7 @@ def check_max(iwad, pwad, stat_line_raw, exc_table): #return whether the level i
             print(PWAD_INDENT_STRING if pwad else "", end="")
             cprint(f"Level {level.lump_name} in {format_pwad(iwad, pwad)} isn't beaten!", UNPLAY_COLOR)
             return False
+    #TODO: reorganize these into a single if statement, prefer notifying missed kills to missed items
     if REQUIRE_ITEMS and not level.item_maxed:
         if not level.item_exception(exc_table):
             if PRINT_UNMAX_LVLS:
