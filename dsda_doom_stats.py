@@ -56,6 +56,9 @@ class Exceptions_Table(typing.NamedTuple):
 # total exits, total kills, best kills, best items, best secrets,
 # max kills, max items, max secrets
 # all fields are ints except lump, -1 indicates no data
+#TODO: support negative numbers to indicate count of inaccessible kills/items/secrets
+# (for example, secrets exception of "-2" indicates that 2 secrets are inaccessible,
+# so therefore the required secrets should be max secrets - 2)
 class DSDA_Stat_Line(typing.NamedTuple):
     iwad: str
     pwad: str
