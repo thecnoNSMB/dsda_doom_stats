@@ -45,11 +45,12 @@ class Exceptions_Table(typing.NamedTuple):
 
 
 # currently only stats.txt version 1 is supported, described below
-# dsda-doom 0.28.1 and cherry-doom 2.0.0 both produce this version
-# old versions of cherry doom produce a version 2, the spec is identical
-# except for two extra ints at the end, best attempts and total attempts, in that order
-#TODO: nyan doom?
-# relevant source lives in prboom2/src/dsda/wad_stats.c
+# dsda-doom 0.26.0 and up, all versions of nyan doom,
+# and cherry-doom 2.0.0 all produce this version
+# cherry doom versions 1.x.x produce a version 2, the spec is identical except for
+# two extra ints at the end, "best attempts" and "total attempts", in that order
+# relevant source lives in prboom2/src/dsda/wad_stats.c in dsda-doom and forks,
+# src/ws_wadstats.c or src/wad_stats.c in cherry doom
 
 # stats.txt format spec: 1 line of just current version, 1 line of just total kills,
 # then per line: lump (length 8 str), ep, map, best skill, best time, best max time, best sk5 time,
