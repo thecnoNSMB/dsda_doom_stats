@@ -134,7 +134,6 @@ def format_num_maps(num_maps):
 def check_max(iwad, pwad, stat_line_raw, exc_table): #return whether the level is considered "maxed"
     global TOTAL_MAXED_LVLS, TOTAL_DEAD_DEMONS
     level = DSDA_Stat_Line(iwad, pwad, *stat_line_raw)
-    TOTAL_DEAD_DEMONS += level.best_kills #TODO: consider total_kills instead? both?
     if level.best_time == -1: #level not finished
         if level.triplet_id in exc_table.PLAY_EXCEPTIONS:
             return True
@@ -142,6 +141,7 @@ def check_max(iwad, pwad, stat_line_raw, exc_table): #return whether the level i
             print(PWAD_INDENT_STRING if pwad else "", end="")
             cprint(f"Level {level.lump_name} in {format_pwad(iwad, pwad)} isn't beaten!", UNPLAY_COLOR)
             return False
+    TOTAL_DEAD_DEMONS += level.best_kills #TODO: consider total_kills instead? both?
     #TODO: reorganize these into a single if statement, prefer notifying missed kills to missed items
     if REQUIRE_ITEMS and not level.item_maxed:
         if not level.item_exception(exc_table):
