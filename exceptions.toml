@@ -12,6 +12,7 @@ KILL_EXCEPTIONS = [
     ["chex", "", "E1M5", 70], #a bunch of flemoids stuck behind a teleport trap
     ["doom", "", "E1M8", 26], #a bunch of demons in the death exit
     #["doom2", "", "MAP30", 1], #icon of sin
+    ["plutonia", "", "MAP11", 14], #4 arch-viles in a death exit
     ["tnt", "", "MAP15", 94], #inaccessible ambush
     #["tnt", "", "MAP30", 60], #icon of sin
 ]
