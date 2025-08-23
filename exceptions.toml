@@ -69,4 +69,5 @@ PLAY_EXCEPTIONS = [
     ["chex", "", "E4M7"],
     ["chex", "", "E4M8"],
     ["chex", "", "E4M9"],
+    ["hacx", "", "MAP21"], #no-exit stopper
 ]
