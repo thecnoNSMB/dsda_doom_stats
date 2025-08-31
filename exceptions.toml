@@ -23,7 +23,7 @@ SECRET_EXCEPTIONS = [
     ["chex", "chex2", "E1M3", 3], #secret 4 requires a glide because it's too narrow
     ["doom", "", "E4M3", 20], #two torches block secret sectors
     ["doom", "", "E4M7", 2], #two secrets too thin to register
-    ["doom2", "", "MAP15", 10], #The Broken Pain Elemental Secret [too thin to register]
+    ["doom2", "", "MAP15", 10], #The Broken Pain Elemental Secret (too thin to register)
     ["doom2", "", "MAP27", 7], #you can't stand on a teleporter if it teleports you, dumbass
 ]
 
