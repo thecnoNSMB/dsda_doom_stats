@@ -13,6 +13,8 @@ KILL_EXCEPTIONS = [
     ["doom", "", "E1M8", 26], #a bunch of demons in the death exit
     #["doom2", "", "MAP30", 1], #icon of sin
     ["plutonia", "", "MAP11", 14], #4 arch-viles in a death exit
+    ["plutonia", "", "MAP27", 77], #out of bounds arch-vile resurrecting a chaingunner
+    #["plutonia", "", "MAP30", 19], #icon of sin
     ["tnt", "", "MAP15", 94], #inaccessible ambush
     #["tnt", "", "MAP30", 60], #icon of sin
 ]
@@ -34,6 +36,8 @@ ITEM_EXCEPTIONS = [
     ["chex", "", "E1M3", 11], #two computer area maps
     ["chex", "chex2", "E1M3", 12], #supercharge breakfast in the secret that requires a glide (see above)
     ["doom2", "", "MAP27", 92], #two computer area maps
+    ["plutonia", "", "MAP28", 33], #two computer area maps
+    ["plutonia", "", "MAP30", 2], #six items in a deathmatch-only area
 ]
 
 #Levels you don't need to play at all
