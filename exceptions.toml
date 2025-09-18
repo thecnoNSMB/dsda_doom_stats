@@ -27,6 +27,8 @@ SECRET_EXCEPTIONS = [
     ["doom", "", "E4M7", 2], #two secrets too thin to register
     ["doom2", "", "MAP15", 10], #The Broken Pain Elemental Secret (too thin to register)
     ["doom2", "", "MAP27", 7], #you can't stand on a teleporter if it teleports you, dumbass
+    #The Master Levels
+        ["doom2", "nessus", "MAP07", 0], #only secret too thin to register
     ["plutonia", "", "MAP26", 3], #The Broken Pain Elemental Secret 2 (too thin to register)
 ]
 
