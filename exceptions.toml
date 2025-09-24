@@ -12,6 +12,8 @@ KILL_EXCEPTIONS = [
     ["chex", "", "E1M5", 70], #a bunch of flemoids stuck behind a teleport trap
     ["doom", "", "E1M8", 26], #a bunch of demons in the death exit
     #["doom2", "", "MAP30", 1], #icon of sin
+    #The Master Levels
+        ["doom2", "mephisto", "MAP07", 76], #spectre stuck in wall, plus an icon of sin
     ["plutonia", "", "MAP11", 14], #4 arch-viles in a death exit
     ["plutonia", "", "MAP27", 77], #out of bounds arch-vile resurrecting a chaingunner
     #["plutonia", "", "MAP30", 19], #icon of sin
