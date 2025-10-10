@@ -12,7 +12,7 @@ KILL_EXCEPTIONS = [
     ["chex", "", "E1M5", 70], #a bunch of flemoids stuck behind a teleport trap
     ["doom", "", "E1M8", 26], #a bunch of demons in the death exit
     #["doom2", "", "MAP30", 1], #icon of sin
-    #The Master Levels
+    #The Master Levels [MASTERLEVELS]
         ["doom2", "mephisto", "MAP07", 76], #spectre stuck in wall, plus an icon of sin
     ["plutonia", "", "MAP11", 14], #4 arch-viles in a death exit
     ["plutonia", "", "MAP27", 77], #out of bounds arch-vile resurrecting a chaingunner
@@ -29,7 +29,7 @@ SECRET_EXCEPTIONS = [
     ["doom", "", "E4M7", 2], #two secrets too thin to register
     ["doom2", "", "MAP15", 10], #The Broken Pain Elemental Secret (too thin to register)
     ["doom2", "", "MAP27", 7], #you can't stand on a teleporter if it teleports you
-    #The Master Levels
+    #The Master Levels [MASTERLEVELS]
         ["doom2", "nessus", "MAP07", 0], #only secret too thin to register
     ["plutonia", "", "MAP26", 3], #The Broken Pain Elemental Secret 2 (too thin to register)
 ]
