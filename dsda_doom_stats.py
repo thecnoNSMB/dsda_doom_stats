@@ -154,7 +154,7 @@ def check_max(iwad, pwad, stat_line_raw, exc_table): #return whether the level i
             if PRINT_UNMAX_LVLS:
                 print(PWAD_INDENT_STRING if pwad else "", end="")
                 cprint(f"Level {level.lump_name} in {format_pwad(iwad, pwad)} isn't maxed!", UNMAX_COLOR)
-                return False
+            return False
     TOTAL_MAXED_LVLS += 1
     if PRINT_MAX_LVLS and not PRINT_ONCE_PER_WAD: #TODO: prints even if the entire wad is maxed
         print(PWAD_INDENT_STRING if pwad else "", end="")
