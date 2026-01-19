@@ -43,6 +43,9 @@ class Exceptions_Table(typing.NamedTuple):
 #TODO: lift ALL printing behavior into its own distinct step
 # this will also make paginating output easier
 
+#ugly hack global to fix a bug since i'm kicking the can on that refactor
+SUPPRESS_PRINTING = False
+
 
 # currently only stats.txt version 1 is supported, described below
 # dsda-doom 0.26.0 and up, all versions of nyan doom,
@@ -137,7 +140,7 @@ def check_max(iwad, pwad, stat_line_raw, exc_table): #return whether the level i
     if level.triplet_id in exc_table.PLAY_EXCEPTIONS:
         return True #bail early to avoid counting completed PLAY_EXCEPTIONS levels
     if level.best_time == -1: #level not finished
-        if PRINT_UNPLAY_LVLS:
+        if PRINT_UNPLAY_LVLS and not SUPPRESS_PRINTING:
             print(PWAD_INDENT_STRING if pwad else "", end="")
             cprint(f"Level {level.lump_name} in {format_pwad(iwad, pwad)} isn't beaten!", UNPLAY_COLOR)
         return False
@@ -145,24 +148,25 @@ def check_max(iwad, pwad, stat_line_raw, exc_table): #return whether the level i
     #TODO: reorganize these into a single if statement, prefer notifying missed kills to missed items
     if REQUIRE_ITEMS and not level.item_maxed:
         if not level.item_exception(exc_table):
-            if PRINT_UNMAX_LVLS:
+            if PRINT_UNMAX_LVLS and not SUPPRESS_PRINTING:
                 print(PWAD_INDENT_STRING if pwad else "", end="")
                 cprint(f"Level {level.lump_name} in {format_pwad(iwad, pwad)} is missing items!", UNMAX_COLOR)
             return False
     if not level.maxed:
         if not level.max_exception(exc_table):
-            if PRINT_UNMAX_LVLS:
+            if PRINT_UNMAX_LVLS and not SUPPRESS_PRINTING:
                 print(PWAD_INDENT_STRING if pwad else "", end="")
                 cprint(f"Level {level.lump_name} in {format_pwad(iwad, pwad)} isn't maxed!", UNMAX_COLOR)
             return False
     TOTAL_MAXED_LVLS += 1
-    if PRINT_MAX_LVLS and not PRINT_ONCE_PER_WAD: #TODO: prints even if the entire wad is maxed
+    if PRINT_MAX_LVLS and not SUPPRESS_PRINTING: #TODO: prints even if the entire wad is maxed
         print(PWAD_INDENT_STRING if pwad else "", end="")
         cprint(f"Level {level.lump_name} in {format_pwad(iwad, pwad)} is maxed!", MAX_COLOR)
     return True
 
 def parse_stats(path, iwad, pwad, exc_table):
     # Refer to stats.txt format spec above, near the definition of DSDA_Stat_Line
+    global SUPPRESS_PRINTING
     with open(path, 'r', encoding="utf-8") as stat_file:
         stats_ver = stat_file.readline()
         _ = stat_file.readline()
@@ -178,7 +182,7 @@ def parse_stats(path, iwad, pwad, exc_table):
         if not check_max(iwad, pwad, stats, exc_table):
             wad_max = False
             if PRINT_ONCE_PER_WAD:
-                break #TODO: Bug! Max levels that come *after* the earliest unmax level won't be counted
+                SUPPRESS_PRINTING = True
     if wad_max and PRINT_MAX_WADS:
         num_maps = len(stat_list)
         print(PWAD_INDENT_STRING if pwad else "", end="")
@@ -206,10 +210,12 @@ def _path_sort_key(path):
     return local_path_parts
 
 def main():
+    global SUPPRESS_PRINTING
     with open(EXCEPTIONS_FILE, 'rb') as exc_file:
         exc_table_raw = tomllib.load(exc_file)
     exc_table = Exceptions_Table(**exc_table_raw)
     for path in sorted(ROOT_PATH.rglob("stats.txt"), key=_path_sort_key):
+        SUPPRESS_PRINTING = False #may have been enabled if PRINT_ONCE_PER_WAD
         parse_path(path, exc_table)
     cprint(f"Total maps maxed: {TOTAL_MAXED_LVLS}", TOTALS_COLOR)
     cprint(f"Total dead demons: {TOTAL_DEAD_DEMONS}", TOTALS_COLOR)
